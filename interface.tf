@@ -14,8 +14,8 @@ variable "subnet_cidr" {
 }
 
 variable "ami" {
-    type = string
-    description = "The AMI "
+  type        = string
+  description = "The AMI "
 }
 
 variable "server_port" {
@@ -23,11 +23,11 @@ variable "server_port" {
 }
 
 variable "instance_type" {
-    type = string
-    description = "The type of the instance"
+  type        = string
+  description = "The type of the instance"
 }
 variable "ip_allow_ssh" {
   description = "The ips that can access to the port 22"
-  default = "0.0.0.0/0"
+  default     = "0.0.0.0/0"
 }
 
