@@ -1,5 +1,3 @@
-provider "aws" {}
-
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
   tags = {
@@ -27,7 +25,7 @@ resource "aws_route_table" "rtb" {
 
 
 resource "aws_subnet" "subnet" {
-  vpc_id     = aws_vpc.nana-vpc.id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = var.subnet_cidr
   tags = {
     Name = "${var.env}-subnet"
@@ -46,7 +44,7 @@ resource "aws_security_group" "sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.allow_ssh_ip]
+    cidr_blocks = [var.ip_to_allow_ssh]
   }
 
   ingress {
